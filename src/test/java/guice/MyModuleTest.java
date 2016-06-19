@@ -115,5 +115,7 @@ public class MyModuleTest {
     public void tearDown() throws Exception {
         injector.getInstance(Key.get(UnitOfWork.class, MasterPu.class)).end();
         injector.getInstance(Key.get(UnitOfWork.class, SlavePu.class)).end();
+        injector.getInstance(Key.get(PersistService.class, MasterPu.class)).stop();
+        injector.getInstance(Key.get(PersistService.class, SlavePu.class)).stop();
     }
 }
